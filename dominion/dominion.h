@@ -134,7 +134,7 @@ int adventurerCard(int currentPlayer, struct gameState *state, int drawntreasure
 int council_room_Card(int currentPlayer, struct gameState *state, int handPos);
 /* refactored council room card */
 
-int feastCard(struct gameState *state, int currentPlayer, int temphand, int choice1);
+int feastCard(struct gameState *state, int currentPlayer, int *temphand, int choice1);
 /* refactored feast card card */
 
 int mineCard(struct gameState *state, int currentPlayer, int choice1, int choice2, int handPos);
