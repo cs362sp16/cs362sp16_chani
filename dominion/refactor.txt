@@ -1,0 +1,6 @@
+I refactored the first 5 cards: adventurer, council room, feast, mine, and remodel
+
+Clearly the card effect switch statement is a mess. By pulling out 5 of the cards into their own functions it cleans up the code and makes it more readable.
+I started by creating the function for the card effect and moving the code out of the switch statement and into the function.
+I added the necessary parameters and local variables. Then added the call to the function into the switch statement. Lastly I put the signature into dominion.h.
+After all this I checked to see if it compiled and made a few small changes.
