@@ -1,4 +1,6 @@
 #include "dominion.h"
+#include "dominion_helpers.h"
+#include <stdio.h>
 
 int failed = 0;
 
@@ -15,7 +17,7 @@ void checkasserts() {
 	}
 }
 
-/*Testing adventurer*/
+/*Testing cutpurse*/
 
 int main() {
 	struct gameState g;
@@ -26,9 +28,9 @@ int main() {
 
 	int r = initializeGame(2, k, 5, &g);
 
-	r = cardEffect(adventurer, 1, 1, 1, &g, 0, &j);
+	r = cardEffect(cutpurse, 1, 1, 1, &g, 0, &j);
 
-	myassert(r == 0, "Adventurer failed");
+	myassert(r == 0, "Cutpurse failed");
 
 	checkasserts();
 

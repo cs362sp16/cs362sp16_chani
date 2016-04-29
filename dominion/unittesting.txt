@@ -1,0 +1,8 @@
+Code coverage: 30.34% - this is quite poor. Ideally I'd like to reach much higher coverage.
+
+I tested the first 4 functions: initializeGame, playCard, buyCard, and numHandCards.
+Most of these function as expected, except the bug I put in unittestbugs.txt.
+I used the same assert functions that were shown in class. Most of my tests follow the same format as the ones shown in class.
+
+The cards I tested were: curse, cutpurse, council room, and ambassador. These all seem to function as expected.
+I also had a problem with the adventurer card, details in unittestbugs.txt.

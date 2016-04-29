@@ -1,0 +1,5 @@
+playDom seems to be bugged. I can't get the test to fail. Will need to revisit.
+
+Also I was testing the adventurer card previously. I don't know why but it kept seg faulting
+	when I reached that code. I had to switch cards to get it to compile at all. Will also
+	need to revisit. Either cardEffects or the card itself is bugged.

@@ -1,4 +1,6 @@
 #include "dominion.h"
+#include "dominion_helpers.h"
+#include <stdio.h>
 
 int failed = 0;
 
