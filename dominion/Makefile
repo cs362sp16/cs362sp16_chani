@@ -15,6 +15,25 @@ interface.o: interface.h interface.c
 player: player.c interface.o
 	gcc -o player player.c -g  dominion.o rngs.o interface.o $(CFLAGS)
 
+results.out: unittest1.c dominion.o rngs.o
+	gcc -o unittest1 unittest1.c dominion.o rngs.o $(CFLAGS)
+	gcc -o unittest2 unittest2.c dominion.o rngs.o $(CFLAGS)
+	gcc -o unittest3 unittest3.c dominion.o rngs.o $(CFLAGS)
+	gcc -o unittest4 unittest4.c dominion.o rngs.o $(CFLAGS)
+	gcc -o cardtest1 cardtest1.c dominion.o rngs.o $(CFLAGS)
+	gcc -o cardtest2 cardtest2.c dominion.o rngs.o $(CFLAGS)
+	gcc -o cardtest3 cardtest3.c dominion.o rngs.o $(CFLAGS)
+	gcc -o cardtest4 cardtest4.c dominion.o rngs.o $(CFLAGS)
+	./unittest1 >> results.out
+	./unittest2 >> results.out
+	./unittest3 >> results.out
+	./unittest4 >> results.out
+	./cardtest1 >> results.out
+	./cardtest2 >> results.out
+	./cardtest3 >> results.out
+	./cardtest4 >> results.out
+	gcov dominion.c >> results.out
+
 all: playdom player
 
 clean:
