@@ -1,0 +1,14 @@
+I used an oracle function and a main function for my tests.
+
+I had many problems with my tests. Several times they seem to freeze, either from an infinite loop
+or some type of runtime error. The few times I've been able to get coverage for them, I achieved
+100% code coverage for adventurer and council_room. I don't have 100% coverage for feast.
+
+I'm unable to replicate or diagnose the bug that causes my tests to freeze. It seems like it occurs randomly.
+I tried using GDB to trace it but I'm forced to assume there is some type of input that is generated that
+my code does not like. I've added break, return, and print statements everywhere I can and can't find 
+what is causing the freeze.
+
+When comparing the working coverage with the unit tests, it appeared that I got better coverage from the 
+random tests. This is likely because my unit tests do not cover all possible cases. The random tests also
+keep track of my succeeding and failing tests which is helpful.
