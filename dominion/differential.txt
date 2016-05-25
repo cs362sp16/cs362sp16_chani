@@ -1,0 +1,17 @@
+When there's a difference in results of the random test, it can be hard to decide who is correct,
+because the input is not displayed so I can't look at which input produces the correct output.
+
+This is not a good time to use differential testing because the dominion game is so complex. It is
+very difficult to determine which game is correct. The game is so convoluted that it is incredibly
+hard to find bugs. I would only be confident in differential testing dominion if I knew for a fact
+that the other dominion game was correct. That way it would be simple to identify the faults in 
+mine. 
+
+The code coverage was the same. I expect for an actual correct implementation, the coverage would 
+be higher for the correct version.
+
+Note that my implementation is still having problems consistently running. I tried swapping out my
+dominion.c and dominion.h with a classmate's but it still freezes often. I tried running it in 
+an IDE to debug step by step and it gets stuck on whoseTurn, eventually turning the gameState to 
+null. Hopefully I can fix this before the final project. My coverage and testing of a classmate's
+dominion were from the rare times it did not freeze.

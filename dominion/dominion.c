@@ -667,7 +667,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
   switch( card ) 
     {
     case adventurer:
-		return adventurerCard(currentPlayer, state, drawntreasure, cardDrawn, temphand);
+		return adventurerCard(z, currentPlayer, state, drawntreasure, cardDrawn);
 
 	case council_room:
 		return council_room_Card(currentPlayer, state, handPos);

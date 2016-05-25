@@ -1,0 +1,24 @@
+#!/bin/bash
+
+mainDir=`pwd`
+
+cd $1
+make testdominionresults.out
+cat testdominionresults.out > run1.out
+mv run1.out $mainDir
+
+cd $2
+make testdominionresults.out
+cat testdominionresults.out > run2.out
+mv run2.out $mainDir
+
+
+diff --suppress-common-lines run1.out run2.out >> testdiffresults.out
+ 
+if [[ -s testdiffresults ]] ; 
+    then
+        echo "TEST FAILED"
+        cat difftestresults.out
+    else
+        echo "TEST SUCCESS"
+fi
