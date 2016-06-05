@@ -1,0 +1,32 @@
+Tarantula:
+I generated separate gcov files for each individual test. 4 card and unit tests, and the random tests. Then using 
+a python script, I parsed each line of the gcov files and uses the pass or fail info to calculate the suspiciousness
+of each line.
+
+The tarantula script found that there was a bug in playCard, handCard, and whoseTurn. This falls in line with what I
+had discussed in debugging.txt. The tests that I ran are still having issues with whoseTurn. Looking at the inputs, 
+my failing test probably has incorrect parameters given to it which would cause playCard to fail.
+
+Tarantula affirmed my biggest bug that I had issues with over the term. I think that it would be a useful tool if 
+implemented once there was an extensive test suite, because then bugs could be focused and hunted down. At this point
+however, there are only 8-10 tests for sometimes repeated areas of code, so the information that tarantula provides
+in minimal.
+
+Line#-----Suspicion Level
+ 231------1.00
+ 234------1.00
+ 237------1.00
+ 243------1.00
+ 249------1.00
+ 252------1.00
+ 254------1.00
+ 315------1.00
+ 316------1.00
+ 317------1.00
+ 346------0.57
+ 347------0.57
+   8------0.50
+   9------0.50
+  11------0.50
+  12------0.50
+
