@@ -1,0 +1,14 @@
+In pengs's dominion.c, the steward card has an error. 
+
+Reproduce: I was able to reproduce this with my random tester. It was triggered every time the
+steward card was played. If there existed a steward card unit test, it would fail every time it ran.
+
+Bug: The card does not discard the correct number of cards. The card is supposed to discard two
+cards. It trashes the two cards (line 869-870), but only discards one of them (line 874).
+
+Fix: This is easily fixed by adding "discardCard(handPos, currentPlayer, state, 0);" to line 875.
+
+Severity: Low - This only happens when the steward card is played, which is not that often. It does not
+crash the game or cause any large errors.
+
+Priority: Medium - It is not a severe bug, but the priority can be higher because of the simple fix.

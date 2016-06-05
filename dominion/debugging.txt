@@ -1,0 +1,39 @@
+Debugging report:
+
+I decided to try to fix a recurring bug that gave me many problems with assignments 3 and 4.
+This bug would freeze the tests during runtime. During assignment 3, I tried to debug the program using
+GDB and had no luck finding it. I can possibly attest this to my unfamiliarity with GDB. For assignment 4, I 
+had the same problem, and tried to debug with my favorite IDE, Visual Studio.
+
+In Visual Studio, first I had to add in lines to simulate the command line arguments. I removed 
+	//SelectStream(1);
+	//PutSeed(atoi(argv[0]));
+	//int randSeed = rand(atoi(argv[0]));
+and added 
+	int randSeed = rand(42);
+to simulate the random seed. Then I could build and debug the project. I added a watch to gamestate and kept
+a close eye on the variables. I found that the program would get stuck on whoseTurn, which eventually turned the
+gamestate to null. In fruitless attempts to fix the bug, I tried hard coding the gamestate, currentPlayer, and 
+whoseTurn to specific values while running the program.
+
+I returned to GDB in frustration and watched the values in gamestate. I noticed that my randSeed had a value that 
+did not make sense. Finally a breakthrough! Turns out that I was using argv[] incorrectly and I wanted argv[1] instead
+of argv[0]. What a silly mistake.
+
+Agan's Rules:
+1. Understand the System
+At first I thought that the bug I was facing was in the dominion code. Thus I assumed my system was dominion.c. When 
+it was actually an amateur mistake in the GNU C library. If I really understood my system the problem would have never
+come up.
+
+2. Make it Fail
+This was no problem. The bug occured every time! Now, looking for a correlation was the hard part. Since the correlation
+happened every time the code was run!
+
+5. Change One Thing at a Time
+I tried to do this by hard coding values within the debugger.
+
+7. Check the Plug
+Ultimately this was the solution. I was getting hung up on the strange behavior of whoseTurn when the answer was right
+in front of my eyes the whole time. If I went back to look at the code before initializeGame, I would have found the 
+problem immediately.

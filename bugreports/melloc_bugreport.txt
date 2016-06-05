@@ -1,0 +1,16 @@
+In melloc's dominion.c, the feast card has a logic error. 
+
+Reproduce: I was able to reproduce this bug every instance I ran my feast unit test. The bug
+is not reliant on a specific input; it is triggered every time the feast card is played.
+
+Bug: From line 701-704, the player's hand is backupped before attempting to buy a card.
+Then from line 710-740, the player attempts to buy a card. After they succeed,
+the player's hand is reset to the backupped hand, so they don't have the card they bought, anymore.
+
+Fix: This reset should be a condition within the 710-740 code block if there is 
+no card available to be purchased.
+
+Severity: Low - This only happens when the feast card is played, which is not that often. It does not
+crash the game, only wastes some coins.
+
+Priority: Medium - It is not a severe bug, but the priority can be higher because of the simple fix.

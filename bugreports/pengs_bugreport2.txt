@@ -1,0 +1,20 @@
+In pengs's dominion.c, the tribute card has an error. 
+
+Reproduce: This was not reproduced by me but I caught it through a random generation of my 
+random tester. It could be reproduced by running a unit test on specifically the tribute card.
+Even then it'd be hard to check for the error unless there was a condition in the unit test to
+check the values of the next player's discard pile.
+
+Bug: The for loop from line 897 to 902 is supposed to increment through every card in the 
+next player's discard pile and puts them in the next player's discard pile. 
+On line 901, "state->discardCount[nextPlayer]--;" lowers the upper limit of the for loop. This
+means that any card that is in the discard pile that is higher than the upper limit are lost.
+The next player's discard pile is then filled with meaningless -1s.
+
+Fix: Delete line 901. After the for loop, add "state->discardCount[nextPlayer] = 0;".
+
+Severity: Low - It's a wonder that my random tester even found this bug. I suspect that the average players
+would almost never notice any problems caused by this.
+
+Priority: Low - It is not a severe bug. The cards that are supposed to be discarded are just lost, so it
+does not cause any bad effects. 

@@ -17,13 +17,11 @@ int checkAdventurer(int z, int currentPlayer, struct gameState *state, int drawn
 	r = adventurerCard(z, currentPlayer, state, drawntreasure, cardDrawn);
 	if (r == 0){
         checkRuns++;
-        numSuccess++;
-		return;
+		return numSuccess++;
     }
     else{
         checkRuns++;
-        numFail++;
-        return;
+        return numFail++;
     }
 }
 
@@ -35,7 +33,7 @@ int main(int argc, char* argv[]) {
 	SelectStream(1);
 	PutSeed(atoi(argv[0]));
 
-	if (argc < 2) {
+	if (argc != 2) {
 		printf("Input should match {exec randSeed}\n");
 	}
 
